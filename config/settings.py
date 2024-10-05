@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'databaseyvn_db',
         'USER': 'postgres',
         'PASSWORD': 'fcNneGHKnpGTe6gxH23f',
-        'HOST': 'http://management-asiatech.runflare.com',
+        'HOST': 'management-asiatech.runflare.com',
         'PORT': '32317'
     }
 }
