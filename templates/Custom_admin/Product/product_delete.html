@@ -1,0 +1,21 @@
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+	<form method="post">
+        {% csrf_token %}
+        <div class="col-sm-6 col-md-4">
+                        <div class="card card-inverse card-danger text-xs-center">
+                            <div class="card-block">
+                                <blockquote class="card-blockquote">
+                                    <p>ایا از پاک کردن کالای " {{ product.title }} " مطمعن هستید </p>
+                                    <footer>
+                                        <cite title="Source Title">پاک کردن کالا !</cite>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+    <button type="submit" class="btn btn-danger btn-lg">پاک کردن </button>
+    <a href="{% url 'Custom_admin:products' %}"><button type="button" class="btn btn-success btn-lg">انصراف</button></a>
+    </form>
+{% endblock %}

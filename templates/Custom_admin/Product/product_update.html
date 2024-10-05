@@ -1,0 +1,38 @@
+
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+               {{ form.title.help_text }}:
+    {{ form.title }}
+
+
+    {{ form.description.help_text }}:
+    {{ form.description }}
+    {{ form.price.help_text }}:
+    {{ form.price }}
+
+    {{ form.Brad.help_text }}:
+    {{ form.Brad }}
+    {{ form.slug.help_text }}:
+    {{ form.slug }}
+            <br>
+             {{ form.category.help_text }}:
+             {{ form.category }}
+    {{ form.image_1.help_text }}:
+    {{ form.image_1 }}
+    {{ form.image_2.help_text }}:
+    {{ form.image_2 }}
+    {{ form.image_3.help_text }}:
+    {{ form.image_3 }}
+            <br><br>
+    {{ form.quantity.help_text }}:
+    {{ form.quantity }}
+
+            <input class="btn btn-sm btn-primary" type="submit" value="تایید">
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+    <div class="col-md-12">
+        <form action="{% url 'Custom_admin:category-create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+    {{ form.name.help_text }}
+    {{ form.name }}
+    {{ form.slug.help_text }}
+    {{ form.slug }}
+    {{ form.image.help_text }}
+    {{ form.image }}
+            <input class="btn btn-sm btn-primary" type="submit" value="تایید">
+        </form>
+    </div>
+
+{% endblock %}

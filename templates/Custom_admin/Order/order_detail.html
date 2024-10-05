@@ -1,0 +1,94 @@
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+
+
+        <div class="card-block">
+            <table class="table table-bordered"  style="font-size: small">
+                                    <thead>
+                                        <tr>
+                                            <th>کد سفارش</th>
+                                            <th>کاربر</th>
+                                            <th>وضعیت</th>
+                                            <th>جمع کل</th>
+                                            <th>در تاریخ </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    	<tr>
+                                            <td>{{ order.pk }}</td>
+                                            <td>{{ order.user.first_name }} {{ order.user.last_name }}</td>
+
+                                            
+                                            </td>
+                                            {% if order.status == "aw" %}
+                                            	<td style="direction: ltr;text-align: right">در انتظار تایید<a href="{% url 'Custom_admin:order_update' order.pk%}"><span class="tag tag-success">تغییر</span></a></td>
+                                            {% endif %}
+                                            {% if order.status == "d" %}
+                                            	<td style="direction: ltr;text-align: right">تحویل پست داده شد<a href="{% url 'Custom_admin:order_update' order.pk%}"><span class="tag tag-success">تغییر</span></a></td>
+                                            {% endif %}
+                                            {% if order.status == "do" %}
+                                            	<td style="direction: ltr;text-align: right">تحویل خریدار داده شد<a href="{% url 'Custom_admin:order_update' order.pk%}"><span class="tag tag-success">تغییر</span></a></td>
+                                            {% endif %}
+                                            {% if order.status == "r" %}
+                                            	<td style="direction: ltr;text-align: right">اماده ارسال از انبار<a href="{% url 'Custom_admin:order_update' order.pk%}"><span class="tag tag-success">تغییر</span></a></td>
+                                            {% endif %}
+                                            {% if order.status == "p" %}
+                                            	<td style="direction: ltr;text-align: right">درحال پردازش<a href="{% url 'Custom_admin:order_update' order.pk%}"><span class="tag tag-success">تغییر</span></a></td>
+                                            {% endif %}
+                                            <td>{{ order.total_price }}</td>
+                                            <td>{{ order.created_at }}</td>
+
+                                        </tr>
+                                    <tr>
+
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+     
+    </div>
+
+<table style=" width: 100%;
+            border-collapse: collapse;">
+
+        <tr>
+             <th style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "> کالا ها</th>
+        </tr>
+
+
+    <tr>
+        {% for product in order.products.all %}
+            <td style="border: 1px solid black; /* خط دور هر سلول */
+            padding: 8px;">{{ product.title }}</tr>
+        {% endfor %}
+    </tr>
+
+
+
+</table>
+    <br>
+    <br>
+<table style=" width: 100%;
+            border-collapse: collapse;">
+
+        <tr>
+             <th style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "> نام خریدار :{{ order.user.first_name }} {{ order.user.last_name }}</th>
+        </tr>
+        <tr>
+             <th style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "> آدرس خریدار: {{ order.user.address }}</th>
+        </tr>
+    <tr>
+             <th style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  ">:شماره تلفن خریدار: {{ order.user.phone_number }}</th>
+        </tr>
+
+    <tr>
+
+    </tr>
+
+
+
+</table>
+{% endblock %}

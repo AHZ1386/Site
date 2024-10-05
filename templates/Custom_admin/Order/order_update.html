@@ -1,0 +1,15 @@
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+
+    <div class="col-md-12">
+        <form method="post" >
+            {% csrf_token %}
+            {{ form }}
+            <input class="col-md-12 btn btn-sm btn-primary" type="submit" value="تایید">
+
+        </form>
+    </div>
+
+
+{% endblock %}

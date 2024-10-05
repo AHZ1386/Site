@@ -1,0 +1,36 @@
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+    <div class="col-lg-12" >
+    <div class="card" >
+        <div class="card-block">
+            <table class="table table-bordered"  style="font-size: small">
+                                    <thead>
+                                        <tr>
+                                            <th>نام</th>
+                                            <th>نام خانوادکی</th>
+                                            <th>شماره تلفن</th>
+                                            <th>ادرس</th>
+                                            <th>تعداد سفارشات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in users %}
+                                    	<tr>
+                                            <td>{{ user.first_name }}</td>
+                                            <td>{{ user.last_name }}</td>
+                                            <td style="direction: ltr;text-align: right">{{ user.phone_number }}</td>
+                                            <td>{{ user.address }}</td>
+                                            <td>{{ user.order.count }}</td>
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}

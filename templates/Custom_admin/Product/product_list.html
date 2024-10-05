@@ -1,0 +1,41 @@
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+
+
+        <div class="card-block">
+            <table class="table table-bordered"  style="font-size: small">
+                                    <thead>
+                                        <tr>
+                                            <th>کد</th>
+                                            <th>نام</th>
+                                            <th>برند</th>
+                                            <th>تعداد در انبار</th>
+                                            <th>قیمت</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for product in products %}
+                                    	<tr>
+                                            <td>{{ product.pk }}</td>
+                                            <td>{{ product.title }}</td>
+
+                                            <td>{{ product.Brad }}
+                                            </td>
+                                            <td>{{ product.quantity }}</td>
+
+                                            <td>{{ product.price }}</td>
+                                            <td><a href="{% url 'Custom_admin:update_product' product.pk%}"> <button type="button" class="btn btn-success"><i class="fa fa-magic"></i>&nbsp; ویرایش</button></a> <a href="{% url 'Custom_admin:delete_product' product.pk %}"><button type="button" class="btn btn-danger">حذف</button></a></td>
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+
+    </div>
+
+
+
+{% endblock %}

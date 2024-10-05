@@ -1,0 +1,36 @@
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+
+
+        <div class="card-block">
+            <table class="table table-bordered"  style="font-size: small">
+                                    <thead>
+                                        <tr>
+                                            <th>تصویر</th>
+                                            <th>نام</th>
+                                            <th>اسلاگ</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for cat in categories %}
+                                    	<tr>
+                                            <td><img src="{{ cat.image.url }}"></td>
+
+                                            <td>{{ cat.name }}</td>
+
+                                            <td>{{ cat.slug }}</td>
+                                            
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+
+    </div>
+
+
+
+{% endblock %}

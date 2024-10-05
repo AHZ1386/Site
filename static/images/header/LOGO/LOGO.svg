@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 595.3 841.9" style="enable-background:new 0 0 595.3 841.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#231F20;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st1{stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st2{fill:none;}
+	.st3{font-family:'MyriadPro-Regular';}
+	.st4{font-size:89.6601px;}
+	.st5{fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#000000;stroke-width:12;stroke-miterlimit:10;}
+</style>
+<g>
+	<path class="st0" d="M118.8,246.1v345.5c0,2.2,1.6,3.9,3.7,3.9l0,0c2,0,3.7-1.8,3.7-3.9V246.1c0-2.2-1.6-3.9-3.7-3.9l0,0
+		C120.4,242.2,118.8,243.9,118.8,246.1z"/>
+	<path class="st0" d="M463.7,245.2v345.5c0,2.2,1.6,3.9,3.7,3.9l0,0c2,0,3.7-1.8,3.7-3.9V245.2c0-2.2-1.6-3.9-3.7-3.9l0,0
+		C465.3,241.2,463.7,243,463.7,245.2z"/>
+	<path class="st0" d="M161.8,379.9h-37.2c-2,0-3.7,1.8-3.7,3.9l0,0c0,2.2,1.6,3.9,3.7,3.9h37.2c2,0,3.7-1.8,3.7-3.9l0,0
+		C165.4,381.7,163.8,379.9,161.8,379.9z"/>
+	<rect x="177.7" y="351.5" class="st1" width="9.7" height="72.3"/>
+	<g>
+		<rect x="134.7" y="209.4" class="st2" width="322.7" height="133.5"/>
+		<text transform="matrix(0.9383 0 0 1 164.1323 311.642)" class="st0 st3 st4">HONAR</text>
+		<rect x="221.4" y="435.5" class="st2" width="204.7" height="90.7"/>
+		<text transform="matrix(0.9383 0 0 1 249.3613 512.6752)" class="st3 st4">ADE</text>
+		<text transform="matrix(0.9383 0 0 1 249.3613 512.6752)" class="st5 st3 st4">ADE</text>
+		<path class="st0" d="M290.7,25L61.5,269.3c-1.4,1.5-1.4,4,0,5.6l0,0c1.4,1.5,3.8,1.5,5.2,0L295.9,30.6c1.4-1.5,1.4-4,0-5.6l0,0
+			C294.5,23.5,292.1,23.5,290.7,25z"/>
+		<path class="st0" d="M296.7,25l229.2,244.3c1.4,1.5,1.4,4,0,5.6l0,0c-1.4,1.5-3.8,1.5-5.2,0L291.5,30.6c-1.4-1.5-1.4-4,0-5.6l0,0
+			C293,23.5,295.3,23.5,296.7,25z"/>
+		<path class="st0" d="M229.5,378h235.1c2,0,3.7,1.8,3.7,3.9l0,0c0,2.2-1.6,3.9-3.7,3.9H229.5c-2,0-3.7-1.8-3.7-3.9l0,0
+			C225.9,379.8,227.5,378,229.5,378z"/>
+		<polyline class="st6" points="228.6,349.5 190.9,387.1 231.6,424.7 		"/>
+		<path class="st5" d="M235.1,523.4h185.7l5.3,6.6c0,0,1.8,6.6,0.9,8.5c-0.9,1.9-4.8,7.1-4.8,7.1l-6.6-0.5l-15,0.5l-154.3-2.8h-38.4
+			"/>
+		
+			<image style="overflow:visible;" width="420" height="594" xlink:href="pen-removebg-preview.png"  transform="matrix(-0.21 0 0 0.2254 220.2072 435.8183)">
+		</image>
+	</g>
+</g>
+</svg>

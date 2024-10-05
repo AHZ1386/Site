@@ -1,0 +1,79 @@
+
+{% extends 'Custom_admin/base.html' %}
+
+{% block main %}
+    <div class="row">
+
+
+                    <a href="{% url 'Custom_admin:users' %}">
+                        <div class="col-sm-6 col-lg-3" style="">
+                            <div class="card card-inverse card-warning" style="    background-color: red;">
+                                <div class="card-block p-b-0">
+                                    <h4 class="m-b-0">{{ users }}</h4>
+                                    <p>کاربران</p>
+                                </div>
+                                <div class="chart-wrapper" style="height:70px;"><iframe class="chartjs-hidden-iframe"
+                                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe><iframe
+                                        class="chartjs-hidden-iframe"
+                                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
+                                    <canvas id="card-chart3" class="chart" height="70" width="183"
+                                        style="display: block; width: 183px; height: 70px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="{% url 'Custom_admin:orders' %}">
+                        <div class="col-sm-6 col-lg-3" style="">
+                            <div class="card card-inverse card-warning" style="    background-color: blue;">
+                                <div class="card-block p-b-0">
+                                    <h4 class="m-b-0">{{ orders }}</h4>
+                                    <p>تعداد سفارشات</p>
+                                </div>
+                                <div class="chart-wrapper" style="height:70px;"><iframe class="chartjs-hidden-iframe"
+                                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe><iframe
+                                        class="chartjs-hidden-iframe"
+                                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
+                                    <canvas id="card-chart3" class="chart" height="70" width="183"
+                                        style="display: block; width: 183px; height: 70px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{% url 'Custom_admin:products' %}">
+                        <div class="col-sm-6 col-lg-3" style="">
+                            <div class="card card-inverse card-warning" style="    background-color: black;">
+                                <div class="card-block p-b-0">
+                                    <h4 class="m-b-0">{{ products }}</h4>
+                                    <p>تعداد محصولات</p>
+                                </div>
+                                <div class="chart-wrapper" style="height:70px;"><iframe class="chartjs-hidden-iframe"
+                                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe><iframe
+                                        class="chartjs-hidden-iframe"
+                                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
+                                    <canvas id="card-chart3" class="chart" height="70" width="183"
+                                        style="display: block; width: 183px; height: 70px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                        <a>
+                        <div class="col-sm-6 col-lg-3" style="">
+                            <div class="card card-inverse card-warning" style="    background-color: green;">
+                                <div class="card-block p-b-0">
+                                    <h4 class="m-b-0">{{ orders }}</h4>
+                                    <p>تعداد سفارشات انجام شده</p>
+                                </div>
+                                <div class="chart-wrapper" style="height:70px;"><iframe class="chartjs-hidden-iframe"
+                                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe><iframe
+                                        class="chartjs-hidden-iframe"
+                                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
+                                    <canvas id="card-chart3" class="chart" height="70" width="183"
+                                        style="display: block; width: 183px; height: 70px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!--/row-->
+{% endblock %}

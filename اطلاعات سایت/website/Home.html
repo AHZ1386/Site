@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HonarKade</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <header>
+        <div id="logo">
+            <h1>HonarKade</h1>
+        </div>
+        
+            <div class="search">
+           
+            <button> <i class="uil uil-search"></i></button>
+            <input type="text" placeholder="جستجو کنید..." />
+        </div>
+        <div class="sign-cart-container">
+        <button class="sign-in sign-cart ">
+            <a href="regesterlogin.html" target="_self">
+            <div class="sign-in-text">
+                <span class="sign-text-first">کاربری</span>
+                <span class="sign-text-second">ورود / ثبت نام</span>
+             </div>
+            <div>
+                <img src="./Icons/icons8-person-64.png" width="32px" alt="کاربری">
+            </div>
+        </a>
+        </button>
+         <div class="cart sign-cart">
+         <div class="cart-text">
+            <span>سبد خرید</span>
+            <span>000</span>
+        </div>
+            <img src="./Icons/icons8-favorite-cart-48.png" alt="سبد خرید" width="32px">
+       </div>
+        </div>
+       
+    </div>
+    </header>
+
+
+
+    <nav>
+        <div class="right-nav nav-part">
+            <div class="categories" data-dropdown>
+            
+           <a href="#" class="categorie" data-dropdown-categorie> <i class="uil uil-bars"></i>دسته بندی ها</a>
+            
+                    <ul class="sub-menu-categories">
+                        <li><a href="#">لوازم التحریر</a></li>
+                        <li><a href="#">اسباب بازی</a></li>
+                        
+                    </ul>
+               
+            
+        </div>
+        </div>
+        <div class="middle-nav nav-part">
+            <ul>
+            <li> <a href="#"><i class="uil uil-home"></i>خانه</a> </li>
+            <li> <a href="#"><i class="uil uil-user"></i>درباره ما</a> </li>
+            <li> <a href="#"><i class="uil uil-phone"></i>ارتباط با ما</a></li>
+        </ul>
+        </div>
+        <div class="left-nav nav-part">
+            <button><a href="#">پیگیری سفارش</a></button>
+    
+    </div>
+    </nav>
+    
+    <div class="container">
+        <div class="titleCategories"><h1>لوازم التحریر</h1></div>
+        <div class="row">
+            <div class="item"><img src="./images/slider-images/img1.jpg" alt=""></div>
+            <div class="item"><img src="./images/slider-images/img1.jpg" alt=""></div>
+            <div class="item"><img src="./images/slider-images/img1.jpg" alt=""></div>
+            <div class="item"><img src="./images/slider-images/img1.jpg" alt=""></div>
+        </div>
+        <!-- <div class="sidebar"></div> -->
+        <div class="content-slider">
+            <div class="slider-wrapper">
+                <button id="prev-slide" class="slide-button material-symbols-outlined">chevron_left</button>
+                <div class="image-list">
+                    <img src="./images/slider-images/img1.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img2.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img3.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img4.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img5.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img6.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img7.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img8.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img9.jpg" alt="" class="image-item">
+                    <img src="./images/slider-images/img10.jpg" alt="" class="image-item">
+                </div>
+                <button id="next-slide" class="slide-button material-symbols-outlined">chevron_right</button>
+            </div>
+            <div class="slider-scrollbar">
+                <div class="scrollbar-track">
+                    <div class="scrollbar-thumb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
