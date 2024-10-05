@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div style="margin: 20px; direction: rtl;">
+    <div>
+        <b><span style="font-size: larger;">نام:</span></b>
+        <p>{{ user.first_name }}</p>
+    </div>
+    <div>
+        <b><span style="font-size: larger;">نام خانوادگی:</span></b>
+        <p>{{ user.last_name }}</p>
+    </div>
+    <div>
+        <b><span style="font-size: larger;">آدرس:</span></b>
+        <p>{{ user.address }}</p>
+    </div>
+    <div>
+        <b><span style="font-size: larger;">شماره تلفن:</span></b>
+        <p style="direction: ltr;text-align: right">{{ user.phone_number }}</p>
+    </div>
+</div>
+
+    
+
+<div><a class="btn btn-primary" href="{% url 'Account:change_password' %}" role="button">تغیر رمز عبور</a></div>
+
+    <div><a class="btn btn-primary" href="{% url 'Account:edit_profile' %}" role="button">تغیر مشخصات</a></div>
+
+    <div><a class="btn btn-primary" href="{% url 'Account:logout' %}" role="button">خروج از حساب</a></div>
+{% endblock %}

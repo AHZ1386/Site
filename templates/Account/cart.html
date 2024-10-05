@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<table class="table table-items">
+							    <thead style=" width: 100%;border-collapse: collapse;">
+							    	<tr>
+							    		<th colspan="2">آيتم</th>
+
+							    		<th><div class="align-right">قیمت</div></th>
+							    	</tr>
+							    </thead>
+							    <tbody style=" width: 100%;border-collapse: collapse;">
+                                {% for product in products %}
+                                	<tr>
+							        	<td  style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "class="image"><img src="{{ product.image_1.url   }}" alt="" width="124" height="124"></td>
+							        	<td style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  " class="desc">{{ product.title }}</td>
+
+							        	<td  style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  " class="price">
+							        	    ریال {{ product.price }}
+							        	</td>
+							        </tr>
+                                {% endfor %}
+
+
+							        							        <tr>
+							        	<td  style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "colspan="2" rowspan="2">
+							        	    &nbsp;
+							        	</td>
+							        	<td  style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "class="stronger">هزينه ارسال :</td>
+							        	<td  style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "class="stronger"><div class="align-right">$4.99</div></td>
+							        </tr>
+							        <tr>
+							        	<td  style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "class="stronger">جمع کل :</td>
+							        	<td  style="background-color: #ece9e9; border: 1px solid black; padding: 8px; text-align: right  "class="stronger"><div class="size-16 align-right">{{ total_price }}</div></td>
+							        </tr>
+							    </tbody>
+							</table>
+<p class="right-align">
+							    <a href="{% url 'go-to-getway' %}" class="btn btn-primary higher bold">تاييد و پرداخت</a>
+							</p>
+
+{% endblock %}

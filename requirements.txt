@@ -11,8 +11,6 @@ django-tinymce==3.6.1
 idna==3.4
 isodate==0.6.1
 lxml==4.9.3
-mysql==0.0.3
-mysqlclient==2.2.0
 phonenumbers==8.13.23
 Pillow==10.1.0
 platformdirs==3.11.0

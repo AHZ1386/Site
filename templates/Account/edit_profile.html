@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block text %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+{% endblock text %}
+
+{% block main %}
+
+
+    <form action="{% url 'Account:edit_profile' %}" method="POST">
+
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-outline-dark mt-auto" type="submit">تایید</button>
+    </form>
+
+
+
+
+{% endblock main %}

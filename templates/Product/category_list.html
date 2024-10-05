@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block main %}
+
+
+                <div class="row popup-products blocks-spacer">
+
+
+                {% for cat in category %}
+
+
+
+                    <div class="span3">
+                        <div class="product">
+                            <div class="product-img">
+                                <div class="picture">
+                                    <img src="{{ cat.image.url }}" alt="{{ cat.title }}" width="540" height="374">
+                                    <div class="img-overlay">
+                                        <a href="{% url 'category_detail' cat.slug %}" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-titles no-margin">
+                                <h4 class="title">{{ cat.name }}</h4>
+                            </div>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+
+
+                </div>
+
+{% endblock %}

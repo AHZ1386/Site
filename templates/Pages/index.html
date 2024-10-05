@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block main %}
+	{% for product in products %}
+
+
+
+		<div class="item">
+            <img src="{{product.image_1.url}}" alt="{{ product.title }}">
+            <br>
+            <br>
+            <h3>{{ product.title }}</h3>
+            <button><a href="{% url 'store:product_detail' product.slug %}">دیدن جزئیات</a></button>
+        </div>
+
+	{% endfor %}
+
+{% endblock %}

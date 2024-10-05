@@ -106,24 +106,29 @@ def remove_from_cart(request, id):
 def profile(request):
         return render(request, 'Account/profile.html')
 
-def login_view(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            phone_number = form.cleaned_data.get('phone_number')
-            password = form.cleaned_data.get('password')
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST)
+#         if form.is_valid():
+#             phone_number = form.cleaned_data.get('phone_number')
+#             password = form.cleaned_data.get('password')
+#
+#             user = authenticate(phone_number=str(phone_number), password=password)
+#             if user is not None:
+#                 login(request, user)
+#                 return HttpResponseRedirect('/')  # ری‌دایرکت به صفحه اصلی
+#
+#     else:
+#         form = LoginForm()
+#
+#     return render(request, 'Account/login.html', {'form': form})
 
-            user = authenticate(phone_number=str(phone_number), password=password)
-            if user is not None:
-                login(request, user)
-                return HttpResponseRedirect('/')  # ری‌دایرکت به صفحه اصلی
+class LoginClassView(LoginView):
+    template_name = 'Account/login.html'
+    redirect_authenticated_user = '/'
 
-    else:
-        form = LoginForm()
 
-    return render(request, 'Account/login.html', {'form': form})
 
-    return render(request, 'Account/login.html', {'form': form})
 @login_required()
 def user_cart(request):
     user = request.user

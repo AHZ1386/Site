@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block main %}
+
+
+                <div class="row popup-products blocks-spacer">
+
+
+                {% for product in category.cat.all %}
+
+
+
+                    <div class="span3">
+                        <div class="product">
+                            <div class="product-img">
+                                <div class="picture">
+                                    <img src="{{ product.image_1.url }}" alt="" width="540" height="374">
+                                    <div class="img-overlay">
+                                        <a href="{% url 'store:product_detail' product.slug %}" class="btn more btn-primary">توضیحات بیشتر</a>
+                                        {% if user.is_authenticated == True %}
+                                        <a href="{% url 'add_to_cart' product.pk %}" class="btn buy btn-danger">اضافه به سبد خرید</a>
+                                            {% else %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-titles no-margin">
+                                <h4 class="title">{{ product.title }}</h4>
+                                <h5 class="no-margin">{{ product.price }}:ریال</h5>
+                            </div>
+                            <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+                            <p class="center-align stars">
+                                <span class="icon-star stars-clr"></span>
+                                <span class="icon-star stars-clr"></span>
+                                <span class="icon-star stars-clr"></span>
+                                <span class="icon-star stars-clr"></span>
+                                <span class="icon-star stars-clr"></span>
+
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+
+                </div>
+
+{% endblock %}

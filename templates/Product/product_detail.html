@@ -1,0 +1,40 @@
+{%  extends 'base.html' %}
+
+{% block main %}
+<div class="span7">
+    <div class="thumb">
+                                <a href="#mainPreviewImg"><img src="{{ product.image_3.url }}" alt="" width="940" height="940"></a>
+                            </div>
+                    <div class="product-title">
+                        <h1 class="name">{{ product.title }}</h1>
+                        <div class="meta">
+                            <span class="tag">{{ product.price }} تومان</span>
+                            <span class="stock">
+                                {% if product.quantity  > 1 %}
+                                <span class="btn btn-success">موجود</span>
+                                {% endif %}
+                                {% if product.quantity  == 1 %}
+                                <span class="btn btn-success">موجود</span>
+                                {% endif %}
+                                {% if product.quantity < 1  %}
+                                    <span class="btn btn-danger">اتمام موجودی</span>
+                                <span class="btn btn-warning">تماس بگیرید</span>
+                                {% endif %}
+                                
+                            </span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>{{ product.description }}</p>
+                    {% if product.quantity > 0 %}
+                        {% if user.is_authenticated != True %}
+                    {% else %}
+                         {% if product not in user.shopping_cart.all %}
+                        <a href="{% url 'add_to_cart' product.pk %}"><button  > اضافه به سبد خرید</button></a>
+                        	{% else %}
+                        <a href="{% url 'remove_from_cart' product.pk %}"><button > حذف از سبد خرید </button></a>
+
+                        {% endif %}
+                        {% endif %}
+                    {% endif %}
+{% endblock %}

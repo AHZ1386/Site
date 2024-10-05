@@ -1,0 +1,85 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HonarKade</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}" defer=""></script>
+</head>
+<body>
+
+    <header>
+        <div id="logo">
+            <h1>HonarKade</h1>
+        </div>
+
+            <div class="search">
+
+            <button> <i class="uil uil-search"></i></button>
+            <input type="text" placeholder="جستجو کنید...">
+        </div>
+        {% if user.is_authenticated == True %}
+            <button class="sign-in sign-cart ">
+                <a style="font-size: medium" href="{% url 'Account:shopping_cart' %}">سبد خرید: {{ user.shopping_cart.count }}</a>
+            </button>
+        	{% else %}
+        <div class="sign-cart-container">
+            <button class="sign-in sign-cart ">
+                <a style="font-size: medium" href="{% url 'Account:login' %}">ورود</a>
+            </button>
+            <button class="sign-in sign-cart ">
+                <a style="font-size: medium" href="{% url 'Account:singin' %}">ثبت نام</a>
+            </button>
+        </div>
+
+        {% endif %}
+
+
+    </header>
+
+
+
+
+
+
+    <div class="container">
+        <div class="titleCategories"><h1>لوازم التحریر</h1></div>
+        <div class="row">
+
+            {% block main %}
+
+            {% endblock main %}
+        </div>
+        <!-- <div class="sidebar"></div> -->
+{#        <div class="content-slider">#}
+{#            <div class="slider-wrapper">#}
+{#                <button id="prev-slide" class="slide-button material-symbols-outlined">chevron_left</button>#}
+{#                <div class="image-list">#}
+{#                    <img src="./images/slider-images/img1.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img2.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img3.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img4.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img5.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img6.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img7.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img8.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img9.jpg" alt="" class="image-item">#}
+{#                    <img src="./images/slider-images/img10.jpg" alt="" class="image-item">#}
+{#                </div>#}
+{#                <button id="next-slide" class="slide-button material-symbols-outlined">chevron_right</button>#}
+{#            </div>#}
+            <div class="slider-scrollbar">
+                <div class="scrollbar-track">
+                    <div class="scrollbar-thumb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body></html>
