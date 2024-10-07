@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://shop-test-test2.runflare.run/',]
+CSRF_TRUSTED_ORIGINS = ['https://www.shop-test-test2.runflare.run/', 'https://*.shop-test-test2.runflare.run/']
 # Application definition
 
 INSTALLED_APPS = [
