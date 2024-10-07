@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     'Custom_admin',
+
 ]
 
 MIDDLEWARE = [
@@ -98,9 +99,9 @@ DATABASES = {
         'NAME': 'databaseyvn_db',
         'USER': 'postgres',
         'PASSWORD': 'fcNneGHKnpGTe6gxH23f',
-        'HOST': 'management-asiatech.runflare.com',
-        'PORT': '32317'
-    }
+        'HOST': 'remote-asiatech.runflare.com',
+        'PORT': '31188',
+    },
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
