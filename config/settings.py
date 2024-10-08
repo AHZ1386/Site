@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'databasepxh_db',
+        'NAME': 'databasegba_db',
         'USER': 'postgres',
-        'PASSWORD': 'hDfn4BMQ2sneBh9hZkZd',
+        'PASSWORD': 'qyPLKznfvpeMl4H9X7Uj',
         'HOST': 'remote-pishgaman.runflare.com',
-        'PORT': '30244',
+        'PORT': '30141',
     },
 }
 # Password validation
