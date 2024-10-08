@@ -86,23 +86,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'database'/'db.sqlite3' ,
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'databaseyvn_db',
-        'USER': 'postgres',
-        'PASSWORD': 'fcNneGHKnpGTe6gxH23f',
-        'HOST': 'remote-asiatech.runflare.com',
-        'PORT': '31188',
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'database'/'db.sqlite3' ,
+    }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'databaseyvn_db',
+#         'USER': 'postgres',
+#         'PASSWORD': 'fcNneGHKnpGTe6gxH23f',
+#         'HOST': 'remote-asiatech.runflare.com',
+#         'PORT': '31188',
+#     },
+# }
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
