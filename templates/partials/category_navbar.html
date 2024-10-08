@@ -1,0 +1,10 @@
+<a href="#" class="categorie" data-dropdown-categorie=""> <i class="uil uil-bars"></i>دسته بندی ها</a>
+
+<ul class="sub-menu-categories">
+    {% for cat in category %}
+        <li><a href="{% url 'store:category_detail' cat.slug %}">{{ cat.name }}</a></li>
+
+    {% endfor %}
+
+
+</ul>

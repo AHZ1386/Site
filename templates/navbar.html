@@ -1,14 +1,9 @@
+{% load categorys %}
 <nav>
         <div class="right-nav nav-part">
             <div class="categories" data-dropdown="">
-            
-           <a href="#" class="categorie" data-dropdown-categorie=""> <i class="uil uil-bars"></i>دسته بندی ها</a>
-            
-                    <ul class="sub-menu-categories">
-                        <li><a href="#">لوازم التحریر</a></li>
-                        <li><a href="#">اسباب بازی</a></li>
-                        
-                    </ul>
+
+                {% category_navbar %}
            <a href="#" class="categorie" data-dropdown-categorie=""> <i class="uil uil-bars"></i>منو</a>
 
                     <ul class="sub-menu-categories">
