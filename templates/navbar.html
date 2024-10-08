@@ -4,6 +4,7 @@
             <div class="categories" data-dropdown="">
 
                 {% category_navbar %}
+                {% if user.is_authenticated == True %}
            <a href="#" class="categorie" data-dropdown-categorie=""> <i class="uil uil-bars"></i>منو</a>
 
                     <ul class="sub-menu-categories">
@@ -12,7 +13,7 @@
                         <li><a href="{% url 'Account:logout' %}">خروج از حساب کاربری </a></li>
 
                     </ul>
-            
+            {% endif %}
         </div>
         </div>
         <div class="middle-nav nav-part">
