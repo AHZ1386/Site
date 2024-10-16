@@ -4,12 +4,12 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404,reverse
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import UpdateView
 from random import randint
-from .forms import UserCreateForm, UserProfileForm,OtpForm,ChangePasswordForm,LoginForm
+from .forms import UserCreateForm, UserProfileForm,OtpForm,ChangePasswordForm
 from .models import User
 from .models import Otp
-from django.contrib.auth import login,logout,update_session_auth_hash ,authenticate
+from django.contrib.auth import login,logout,update_session_auth_hash 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone

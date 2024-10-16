@@ -1,6 +1,5 @@
 import logging
 from Store .models import Order
-from Store import models
 from azbankgateways import bankfactories, models as bank_models, default_settings as settings
 from azbankgateways.exceptions import AZBankGatewaysException
 from django.contrib import messages

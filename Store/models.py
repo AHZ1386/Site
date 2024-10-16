@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import Sum
 from django_jalali.db import models as jalali_models
 
 ORDER_STATUS_CHOICES = (

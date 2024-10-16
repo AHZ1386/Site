@@ -1,4 +1,4 @@
-from Store.models import Category, Product
+from Store.models import Product
 from django.shortcuts import render
 from django.views.generic import ListView
 

@@ -1,11 +1,8 @@
-import Account.models
-from django.contrib.auth.models import AbstractUser,BaseUserManager,AbstractBaseUser
+from django.contrib.auth.models import BaseUserManager,AbstractBaseUser
 from django.db import models
-from django.contrib.auth.hashers import make_password
-from django.contrib.auth import get_user_model
-from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from phonenumber_field.modelfields import PhoneNumberField
+
+
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, phone_number, password=None, **extra_fields):
@@ -26,6 +23,8 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('Superuser must have is_superuser=True.')
 
         return self.create_user(phone_number, password, **extra_fields)
+
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=250)

@@ -4,9 +4,7 @@ from  Account.models import User
 from django.shortcuts import redirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from . import forms
-from django.http import Http404
 from django.contrib.auth.decorators import user_passes_test
-from .decorator import superuser_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import user_passes_test
 
