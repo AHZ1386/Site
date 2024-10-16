@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+
+<form action="{% url 'Account:add_address'%}" method="post">
+    {%csrf_token%}
+    {{form|crispy}}
+    <input type="submit" value="تایید">
+</form>
+
+
+
+{% endblock main %}

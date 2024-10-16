@@ -1,6 +1,6 @@
 import re
 from django import forms
-from .models import User,Otp
+from .models import User,UserAddress,Otp
 from django.contrib.auth.forms import UserCreationForm
 class UserCreateForm(UserCreationForm):
     phone_number = forms.IntegerField()
@@ -13,9 +13,16 @@ class UserCreateForm(UserCreationForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = [ 'first_name','last_name','address',]
+        fields = [ 'first_name','last_name',]
+        
+        
 
-
+class UserAddressForm(forms.ModelForm):
+    class Meta:
+        model = UserAddress
+        fields = ['post_code', 'address', 'provinec', 'house_number']
+        
+        
 class OtpForm(forms.ModelForm):
     class Meta:
         model = Otp
@@ -40,3 +47,4 @@ class ChangePasswordForm(forms.Form):
 class LoginForm(forms.Form):
     phone_number = forms.IntegerField()
     password = forms.CharField(widget=forms.PasswordInput())
+    

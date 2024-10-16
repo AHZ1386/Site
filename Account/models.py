@@ -3,6 +3,40 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 
+PROVINEC_CHOISES = (
+    ("آذربایجان شرقی", "East Azarbaijan"),
+    ("آذربایجان غربی", "West Azarbaijan"),
+    ("اردبیل", "Ardabil"),
+    ("اصفهان", "Isfahan"),
+    ("البرز", "Alborz"),
+    ("ایلام", "Ilam"),
+    ("بوشهر", "Bushehr"),
+    ("تهران", "Tehran"),
+    ("چهارمحال و بختیاری", "Chaharmahal and Bakhtiari"),
+    ("خراسان جنوبی", "South Khorasan"),
+    ("خراسان رضوی", "Razavi Khorasan"),
+    ("خراسان شمالی", "North Khorasan"),
+    ("خوزستان", "Khuzestan"),
+    ("زنجان", "Zanjan"),
+    ("سمنان", "Semnan"),
+    ("سیستان و بلوچستان", "Sistan and Baluchestan"),
+    ("فارس", "Fars"),
+    ("قزوین", "Qazvin"),
+    ("قم", "Qom"),
+    ("کردستان", "Kurdistan"),
+    ("کرمان", "Kerman"),
+    ("کرمانشاه", "Kermanshah"),
+    ("کهگیلویه و بویراحمد", "Kohgiluyeh and Boyer-Ahmad"),
+    ("گلستان", "Golestan"),
+    ("گیلان", "Gilan"),
+    ("لرستان", "Lorestan"),
+    ("مازندران", "Mazandaran"),
+    ("مرکزی", "Markazi"),
+    ("هرمزگان", "Hormozgan"),
+    ("همدان", "Hamadan"),
+    ("یزد", "Yazd")
+)
+
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, phone_number, password=None, **extra_fields):
@@ -30,7 +64,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
     phone_number = models.CharField(unique=True,max_length=12)
-    address = models.TextField(null=True)
     registered = models.BooleanField(default=False)
     shopping_cart = models.ManyToManyField('Store.Product', related_name='item', blank=True, null=True)
 
@@ -47,9 +80,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
     objects = CustomUserManager()
-    # جک کردن پر بودن ادرس کاربر
     def check_address(self):
-        if self.address:
+        if self.addresses.all():
             return True
         else:
             return False
@@ -79,3 +111,10 @@ class Otp(models.Model):
     def __str__(self):
         return f'User: : "{self.user.phone_number}" Otp_code: {self.otp}'
 
+class UserAddress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='addresses',null=True)
+    post_code = models.IntegerField(null=True)
+    address = models.CharField(max_length=250,null=True)
+    provinec = models.CharField(max_length=20,choices=PROVINEC_CHOISES,null=True)
+    house_number = models.IntegerField(null=True)
+    home_unit = models.PositiveIntegerField(null=True)

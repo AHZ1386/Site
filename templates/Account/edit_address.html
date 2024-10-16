@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block main %}
+
+<form action="{% url 'Account:edit_address' id %}" method="post" >
+
+{%csrf_token%}
+{{ form|crispy}}
+<input type="submit" title="تغییر" value="تغییر">
+
+</form>
+
+
+
+{% endblock main %}
+
+
+
+
+

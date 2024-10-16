@@ -6,9 +6,8 @@ from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404,reverse
 from django.views.generic import UpdateView
 from random import randint
-from .forms import UserCreateForm, UserProfileForm,OtpForm,ChangePasswordForm
-from .models import User
-from .models import Otp
+from .forms import UserCreateForm, UserProfileForm,OtpForm,ChangePasswordForm,UserAddressForm
+from .models import User,Otp,UserAddress
 from django.contrib.auth import login,logout,update_session_auth_hash 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -168,10 +167,39 @@ def change_password(request):
 
     else:
         form = ChangePasswordForm()
-    return render(request,template_name='Account/chang_password.html',context={'form':form})
+    return render(request,'Account/chang_password.html',context={'form':form})
 
 @login_required()
 def logo_out(request):
     logout(request)
     messages.success(request,'با موفقیت از اکانت خارج شدید')
     return HttpResponseRedirect('/')
+
+@login_required()
+def edit_address(reqeust,address_id):
+    address = get_object_or_404(UserAddress,pk=address_id)
+    if reqeust.method == "POST":
+        form = UserAddressForm(reqeust.POST,instance=address)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('Account:profile'))
+    else:
+        form = UserAddressForm(instance=address)
+    return render(reqeust,'Account/edit_address.html',context={'form':form,'id':address.pk})
+
+
+
+def add_user_address(request):
+    if request.method == "POST":
+        form = UserAddressForm(request.POST)
+        if form.is_valid():
+            post_code = form.cleaned_data['post_code']
+            address = form.cleaned_data['address']
+            provinec = form.cleaned_data['provinec']
+            house_number = form.cleaned_data['house_number']
+            UserAddress.objects.create(user = request.user,post_code=post_code,address=address,provinec=provinec,house_number=house_number)
+            # form.save()
+            return HttpResponseRedirect(reverse('Account:profile'))
+    else:
+        form = UserAddressForm()
+    return render(request,'Account/add_address.html',{'form':form})

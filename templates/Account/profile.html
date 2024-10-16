@@ -12,7 +12,11 @@
     </div>
     <div>
         <b><span style="font-size: larger;">آدرس:</span></b>
-        <p>{{ user.address }}</p>
+        {% for address in user.addresses.all %}
+            
+            <a href="{% url 'Account:edit_address' address.id %}">ادرس اول</a>
+        
+        {% endfor %}
     </div>
     <div>
         <b><span style="font-size: larger;">شماره تلفن:</span></b>
