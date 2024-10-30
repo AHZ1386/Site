@@ -103,7 +103,10 @@ def remove_from_cart(request, id):
 
 @login_required()
 def profile(request):
-        return render(request, 'Account/profile.html')
+        context = {
+            'user_address':UserAddress.objects.filter(user=request.user)
+        }
+        return render(request, 'Account/profile.html',context)
 
 # def login_view(request):
 #     if request.method == 'POST':
@@ -203,3 +206,19 @@ def add_user_address(request):
     else:
         form = UserAddressForm()
     return render(request,'Account/add_address.html',{'form':form})
+
+
+def select_user_address(request, address_id):
+    
+    user_pk = request.user.pk
+    print(user_pk)
+
+    user = User.objects.get(pk=user_pk)
+
+    main_address = UserAddress.objects.get(pk=address_id)
+
+    user.main_address = main_address
+    user.save()
+
+    last_page = request.META.get('HTTP_REFERER')
+    return redirect(last_page)

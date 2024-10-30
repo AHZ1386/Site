@@ -12,10 +12,16 @@
     </div>
     <div>
         <b><span style="font-size: larger;">آدرس:</span></b>
-        {% for address in user.addresses.all %}
+        {% for address in user_address %}
             
-            <a href="{% url 'Account:edit_address' address.id %}">ادرس اول</a>
-        
+
+        {% if address == user.main_address %}
+        <a href="{% url 'Account:edit_address' address.id %}"> ادرس اصلی </a>
+        <br>
+        {%else%}
+            <a href="{% url 'Account:edit_address' address.id %}">مشاهد ادرس </a>
+            <br>
+        {%endif%}
         {% endfor %}
     </div>
     <div>

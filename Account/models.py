@@ -66,7 +66,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(unique=True,max_length=12)
     registered = models.BooleanField(default=False)
     shopping_cart = models.ManyToManyField('Store.Product', related_name='item', blank=True, null=True)
-
+    main_address = models.ForeignKey('Account.UserAddress', on_delete=models.CASCADE,related_name='main_address',null=True,blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

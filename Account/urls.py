@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import user_cart, profile, LoginClassView, UserProfileUpdateView,signup,register,user_orders,change_password,logo_out,edit_address,add_user_address
+from .views import user_cart, profile, LoginClassView, UserProfileUpdateView,signup,register,user_orders,change_password,logo_out,edit_address,add_user_address,select_user_address
 
 app_name = 'Account'
 
@@ -17,4 +17,5 @@ urlpatterns = [
     path('logout/',logo_out,name='logout'),
     path('edit-address/<int:address_id>/',edit_address , name="edit_address"),
     path('add-address/',add_user_address,name='add_address'),
+    path('select-address/<int:address_id>/',select_user_address,name='select_user_address'),
 ]

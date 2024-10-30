@@ -33,7 +33,7 @@ class OtpForm(forms.ModelForm):
 class ChangePasswordForm(forms.Form):
     old_password = forms.CharField(label='پسورد قبلی', widget=forms.PasswordInput)
     new_password = forms.CharField(label='پسورد جدید', widget=forms.PasswordInput)
-    confirm_password = forms.CharField(label='Cتایید پسورد جدید', widget=forms.PasswordInput)
+    confirm_password = forms.CharField(label='تایید پسورد جدید', widget=forms.PasswordInput)
 
     def clean(self):
         cleaned_data = super().clean()
