@@ -1,6 +1,7 @@
 {%  extends 'base.html' %}
 
 {% block main %}
+
 <div class="span7">
     <div class="thumb">
                                 <a href="#mainPreviewImg"><img src="{{ product.image_1.url }}" alt="" width="940" height="940"></a>
@@ -37,4 +38,11 @@
                         {% endif %}
                         {% endif %}
                     {% endif %}
+                    
+                {% for comment in product.product_comment.all %}
+                        <p>{{comment.author.first_name}}</p>
+                        <p>              {{comment.text}}</p>
+                {%endfor %}
+
+                    </div>
 {% endblock %}

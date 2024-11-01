@@ -46,3 +46,12 @@ class Order(models.Model):
     status = models.CharField(max_length=2,choices=ORDER_STATUS_CHOICES)
     total_price = models.IntegerField(null=True,blank=True)
     created_at = jalali_models.models.DateTimeField(auto_now_add=True,null=True)
+
+
+
+
+
+class Comment(models.Model):
+    author = models.ForeignKey('Account.User',on_delete=models.CASCADE,related_name='comments')
+    text = models.CharField(max_length=500)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='product_comment')
