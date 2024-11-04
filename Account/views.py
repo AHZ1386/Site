@@ -108,22 +108,6 @@ def profile(request):
         }
         return render(request, 'Account/profile.html',context)
 
-# def login_view(request):
-#     if request.method == 'POST':
-#         form = LoginForm(request.POST)
-#         if form.is_valid():
-#             phone_number = form.cleaned_data.get('phone_number')
-#             password = form.cleaned_data.get('password')
-#
-#             user = authenticate(phone_number=str(phone_number), password=password)
-#             if user is not None:
-#                 login(request, user)
-#                 return HttpResponseRedirect('/')  # ری‌دایرکت به صفحه اصلی
-#
-#     else:
-#         form = LoginForm()
-#
-#     return render(request, 'Account/login.html', {'form': form})
 
 class LoginClassView(LoginView):
     template_name = 'Account/login.html'

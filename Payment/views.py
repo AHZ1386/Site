@@ -72,7 +72,6 @@ def callback_gateway_view(request):
 
     # در این قسمت باید از طریق داده هایی که در بانک رکورد وجود دارد، رکورد متناظر یا هر اقدام مقتضی دیگر را انجام دهیم
     if bank_record.is_success:
-
         user = request.user
         total_price = user.shopping_cart.all().aggregate(Sum('price'))
         order = Order.objects.create(user=user,status='aw',total_price=total_price['price__sum'])
@@ -83,12 +82,9 @@ def callback_gateway_view(request):
             item.save()
 
         user.shopping_cart.clear()
-
-        # پرداخت با موفقیت انجام پذیرفته است و بانک تایید کرده است.
-        # می توانید کاربر را به صفحه نتیجه هدایت کنید یا نتیجه را نمایش دهید.
-        messages.success(request,'پرداخت با موفقیت انجام شده و سفارش شما ثبت شد')
-        return HttpResponseRedirect(reverse('index'))
+        return HttpResponse("پرداخت با موفقیت انجام شد.")
 
     # پرداخت موفق نبوده است. اگر پول کم شده است ظرف مدت ۴۸ ساعت پول به حساب شما بازخواهد گشت.
     return HttpResponse(
-        "پرداخت با شکست مواجه شده است. اگر پول کم شده است ظرف مدت ۴۸ ساعت پول به حساب شما بازخواهد گشت.")
+        "پرداخت با شکست مواجه شده است. اگر پول کم شده است ظرف مدت ۴۸ ساعت پول به حساب شما بازخواهد گشت."
+    )
