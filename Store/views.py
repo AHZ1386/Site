@@ -21,6 +21,7 @@ def product_detail(request, slug):
                 return HttpResponseRedirect(last_page)
         else:
             form = PostCommentForm()
+            
 
         return render(request, 'Product/product_detail.html', {
         'product': product,
