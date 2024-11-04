@@ -1,12 +1,37 @@
 from django.views.generic import DetailView, ListView
+from .forms import PostCommentForm
+from .models import Product, Category, Comment
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.shortcuts import render,get_object_or_404
 
-from .models import Product, Category
 
 
-class ProductDetailViwe(DetailView):
-    model = Product
-    context_object_name = 'product'
-    template_name = 'Product/product_detail.html'
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    comments = product.product_comment.filter(confirmed=True)
+    if request.user.is_authenticated == True :
+        if request.method == 'POST':
+            form = PostCommentForm(request.POST)
+            if form.is_valid():
+                text = form.cleaned_data['text']
+                comment = Comment.objects.create(product=product,author=request.user,text=text,)
+                comment.save()
+                last_page = request.META.get('HTTP_REFERER')
+                return HttpResponseRedirect(last_page)
+        else:
+            form = PostCommentForm()
+
+        return render(request, 'Product/product_detail.html', {
+        'product': product,
+        'comments': comments,
+        'form': form,
+    })
+    else:
+        return render(request, 'Product/product_detail.html', {
+        'product': product,
+        'comments': comments,
+    })
 
 
 class CategoryDetailViwe(DetailView):

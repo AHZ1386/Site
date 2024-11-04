@@ -34,15 +34,32 @@
                         <a href="{% url 'add_to_cart' product.pk %}"><button  > اضافه به سبد خرید</button></a>
                         	{% else %}
                         <a href="{% url 'remove_from_cart' product.pk %}"><button > حذف از سبد خرید </button></a>
-
+                        
                         {% endif %}
                         {% endif %}
                     {% endif %}
+
+                    {% if user.is_authenticated != True %}
+                    {% else %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Submit</button>
+                    </form>
+                    {% endif %}
+
+
+
+
+
+
                     
-                {% for comment in product.product_comment.all %}
+                {% for comment in comments %}
                         <p>{{comment.author.first_name}}</p>
                         <p>              {{comment.text}}</p>
                 {%endfor %}
 
                     </div>
+
+
 {% endblock %}

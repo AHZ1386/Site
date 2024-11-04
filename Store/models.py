@@ -38,7 +38,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
-
+    
 
 class Order(models.Model):
     user = models.ForeignKey('Account.User', on_delete=models.CASCADE,related_name='order')
@@ -52,6 +52,8 @@ class Order(models.Model):
 
 
 class Comment(models.Model):
+    confirmed = models.BooleanField(default=False,)
     author = models.ForeignKey('Account.User',on_delete=models.CASCADE,related_name='comments')
     text = models.CharField(max_length=500)
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='product_comment')
+
