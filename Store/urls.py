@@ -10,5 +10,4 @@ urlpatterns = [
     path('product-detail/<str:slug>/', views.product_detail, name='product_detail'),
 
 
-    
 ]
