@@ -9,5 +9,6 @@ urlpatterns = [
     path('category-detail/<str:slug>/', views.CategoryDetailViwe.as_view(), name='category_detail'),
     path('product-detail/<str:slug>/', views.product_detail, name='product_detail'),
 
+
     
 ]
