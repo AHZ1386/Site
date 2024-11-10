@@ -42,6 +42,7 @@ class Product(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey('Account.User', on_delete=models.CASCADE,related_name='order')
+    address = models.CharField(max_length=500,null=True)
     products = models.ManyToManyField(Product, related_name='products')
     status = models.CharField(max_length=2,choices=ORDER_STATUS_CHOICES)
     total_price = models.IntegerField(null=True,blank=True)
