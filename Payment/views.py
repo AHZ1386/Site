@@ -74,12 +74,13 @@ def callback_gateway_view(request):
     if bank_record.is_success:
         user = request.user
         total_price = user.shopping_cart.all().aggregate(Sum('price'))
-        user_address = f' {user.main_address.post_code}:کدپستی , {user.main_address.house_unit}:واحد , {user.main_address.house_number}:پلاک , {user.main_addrss.address}:آدرس , {user.main_address.province}:استان'
-        order = Order.objects.create(user=user,status='aw',total_price=total_price['price__sum'],address=user_address)
+        user_address = f' کدپستی : {user.main_address.post_code}  واحد: {user.main_address.home_unit}  پلاک: {user.main_address.house_number} آدرس: {user.main_address.address} استان: {user.main_address.provinec}'
+        order = Order.objects.create(
+            user=user, status='aw', total_price=total_price['price__sum'], address=user_address)
 
         for item in user.shopping_cart.all():
             order.products.add(item)
-            item.quantity -=1
+            item.quantity -= 1
             item.save()
 
         user.shopping_cart.clear()
