@@ -1,5 +1,5 @@
 import logging
-from Store .models import Order
+from Store .models import Order,OrderItem
 from azbankgateways import bankfactories, models as bank_models, default_settings as settings
 from azbankgateways.exceptions import AZBankGatewaysException
 from django.contrib import messages
@@ -75,11 +75,12 @@ def callback_gateway_view(request):
         user = request.user
         total_price = user.shopping_cart.all().aggregate(Sum('price'))
         user_address = f' کدپستی : {user.main_address.post_code}  واحد: {user.main_address.home_unit}  پلاک: {user.main_address.house_number} آدرس: {user.main_address.address} استان: {user.main_address.provinec}'
-        order = Order.objects.create(
-            user=user, status='aw', total_price=total_price['price__sum'], address=user_address)
+        order = Order.objects.create(user=user, status='aw', total_price=total_price['price__sum'], address=user_address)
+        
 
         for item in user.shopping_cart.all():
-            order.products.add(item)
+            order_item = OrderItem.objects.create(
+                order=order, product=item, product_price=item.price)
             item.quantity -= 1
             item.save()
 

@@ -15,7 +15,7 @@ def is_admin(user):
 @user_passes_test(lambda u: u.is_superuser)
 def index(request):
     context = {
-        'orders': Order.objects.exclude(status='do').count(),
+        # 'orders': Order.objects.exclude(status='do').count(),
         'users': User.objects.all().count(),
         'products': Product.objects.count(),
 
@@ -49,7 +49,7 @@ def order_detail(request, pk):
     context = {
         'order': Order.objects.get(pk=pk)
     }
-    print(Order.objects.get(pk=pk).products.count())
+
     return render(request, 'Custom_admin/Order/order_detail.html',context)
 @method_decorator(user_passes_test(is_admin), name='dispatch')
 class UserListView(ListView):

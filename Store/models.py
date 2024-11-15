@@ -43,15 +43,17 @@ class Product(models.Model):
 class Order(models.Model):
     user = models.ForeignKey('Account.User', on_delete=models.CASCADE,related_name='order')
     address = models.CharField(max_length=500,null=True)
-    products = models.ManyToManyField(Product, related_name='products')
-    # TODO: افزودن یک فیلد پروداکت پرایس برای نگه داری مقدار قیمت کالا در ان زمان
     status = models.CharField(max_length=2,choices=ORDER_STATUS_CHOICES)
     total_price = models.IntegerField(null=True,blank=True)
     created_at = jalali_models.models.DateTimeField(auto_now_add=True,null=True)
 
 
-
-
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name='products')
+    product_price = models.IntegerField(null=True)
+    class Meta:
+        unique_together = ('order', 'product')
 
 class Comment(models.Model):
     confirmed = models.BooleanField(default=False,)
