@@ -17,4 +17,5 @@ urlpatterns = [
     path('categories/',views.CategoryListView.as_view(), name='categorys'),
     # path('order-detail/<int:pk>/', views.OrderDetailView.as_view(), name='order_detail'),
     path('order-detail/<int:pk>/', views.order_detail, name='order_detail'),
+    path('print/<int:pk>',views.print_order_invoice,name='print'),
 ]

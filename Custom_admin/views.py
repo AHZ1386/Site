@@ -51,6 +51,13 @@ def order_detail(request, pk):
     }
 
     return render(request, 'Custom_admin/Order/order_detail.html',context)
+
+def print_order_invoice(request,pk):
+    context = {
+        'order': Order.objects.get(pk=pk)
+    }
+    return render(request, 'Custom_admin/Order/print_order.html', context)
+
 @method_decorator(user_passes_test(is_admin), name='dispatch')
 class UserListView(ListView):
     model = User
